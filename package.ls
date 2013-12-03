@@ -1,0 +1,30 @@
+#!/usr/bin/env lsc -cj
+author:
+  name: ['{AuthorName}']
+  email: '{AuthorEmail}'
+name: 'pgrest-{PluginName}'
+description: '{PluginDescription}'
+version: '0.0.1'
+main: \lib/index.js
+repository:
+  type: 'git'
+  url: '{VCS}'
+scripts:
+  test: """
+    mocha
+  """
+  prepublish: """
+    lsc -cj package.ls &&
+    lsc -bc -o lib src
+  """
+engines: {node: '*'}
+dependencies:
+  trycatch: \1.0.x
+devDependencies:
+  mocha: \*
+  supertest: \0.7.x
+  chai: \*
+  LiveScript: \1.1.x
+  pgrest: \0.1.x
+peerDependencies:
+  pgrest: \0.1.x

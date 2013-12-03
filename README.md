@@ -1,0 +1,4 @@
+pgrest-{PluginName}
+===============
+
+{PluginDescription}
